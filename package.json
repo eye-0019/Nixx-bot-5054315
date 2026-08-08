@@ -1,0 +1,20 @@
+Here's `package.json`. Paste it in, replacing the placeholder content:
+
+```json
+{
+  "name": "nixx-bot-v2",
+  "version": "1.0.0",
+  "description": "Discord moderation and logging bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy-commands": "node deploy-commands.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5"
+  }
+}
+```
+
+Commit it, then let me know when ready for the next one.
