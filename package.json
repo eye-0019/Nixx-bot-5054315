@@ -1,6 +1,3 @@
-Here's `package.json`. Paste it in, replacing the placeholder content:
-
-```json
 {
   "name": "nixx-bot-v2",
   "version": "1.0.0",
@@ -15,6 +12,3 @@ Here's `package.json`. Paste it in, replacing the placeholder content:
     "dotenv": "^16.4.5"
   }
 }
-```
-
-Commit it, then let me know when ready for the next one.
