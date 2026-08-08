@@ -33,6 +33,7 @@ module.exports = {
 
             return interaction.reply(`Unbanned ${user.tag}. Reason: ${reason}`);
         } catch (err) {
+            console.error('Unban error:', err);
             return interaction.reply({ content: 'Could not unban that user. Check the ID and make sure they are banned.', ephemeral: true });
         }
     }
