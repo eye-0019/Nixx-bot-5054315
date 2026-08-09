@@ -35,7 +35,7 @@ module.exports = {
             moderator: interaction.user,
             target: target.user,
             reason: `${reason} (warning #${count})`,
-            color: 0xF1C40F
+            color: 0x95A5A6
         });
 
         return interaction.reply(`Warned ${target.user.tag}. Total warnings: ${count}. Reason: ${reason}`);
