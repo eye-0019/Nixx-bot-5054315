@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-async function logAction(guild, { action, moderator, target, reason, color = 0x95A5A6 }) {
+async function logAction(guild, { action, moderator, target, reason, color = 0xFFFFFF }) {
     const logChannelId = process.env.LOG_CHANNEL_ID;
     if (!logChannelId) return;
 
@@ -10,6 +10,7 @@ async function logAction(guild, { action, moderator, target, reason, color = 0x9
     const embed = new EmbedBuilder()
         .setTitle(action)
         .setColor(color)
+        .setThumbnail(target.displayAvatarURL())
         .addFields(
             { name: 'Moderator', value: `${moderator.tag}`, inline: true },
             { name: 'Target', value: `${target.tag}`, inline: true },
