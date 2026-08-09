@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { logAction } = require('../../utils/logAction');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -18,7 +17,6 @@ module.exports = {
                 .setDescription('Reason for removing this role')
                 .setRequired(false))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
-
     async execute(interaction) {
         const target = interaction.options.getMember('target');
         const role = interaction.options.getRole('role');
@@ -32,14 +30,6 @@ module.exports = {
         }
 
         await target.roles.remove(role, reason);
-        await logAction(interaction.guild, {
-            action: 'Role Removed',
-            moderator: interaction.user,
-            target: target.user,
-            reason: `${reason} (role: ${role.name})`,
-            color: 0x992D22
-        });
-
         return interaction.reply(`Removed ${role} from ${target.user.tag}. Reason: ${reason}`);
     }
 };
