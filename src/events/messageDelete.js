@@ -13,7 +13,8 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Message Deleted')
-            .setColor(0x95A5A6)
+            .setColor(0xFFFFFF)
+            .setThumbnail(message.author?.displayAvatarURL() || null)
             .addFields(
                 { name: 'Author', value: `${message.author?.tag || 'Unknown'}` },
                 { name: 'Channel', value: `${message.channel}` },
