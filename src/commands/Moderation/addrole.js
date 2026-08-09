@@ -18,7 +18,6 @@ module.exports = {
                 .setDescription('Reason for adding this role')
                 .setRequired(false))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
-
     async execute(interaction) {
         const target = interaction.options.getMember('target');
         const role = interaction.options.getRole('role');
@@ -37,7 +36,7 @@ module.exports = {
             moderator: interaction.user,
             target: target.user,
             reason: `${reason} (role: ${role.name})`,
-            color: 0x2ECC71
+            color: 0xFFFFFF
         });
 
         return interaction.reply(`Added ${role} to ${target.user.tag}. Reason: ${reason}`);
