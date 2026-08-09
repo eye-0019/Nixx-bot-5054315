@@ -8,15 +8,8 @@ async function logAction(guild, { action, moderator, target, reason, color = 0xF
     if (!channel) return;
 
     const embed = new EmbedBuilder()
-        .setTitle(action)
         .setColor(color)
-        .setThumbnail(target.displayAvatarURL())
-        .addFields(
-            { name: 'Moderator', value: `${moderator.tag}`, inline: true },
-            { name: 'Target', value: `${target.tag}`, inline: true },
-            { name: 'Reason', value: reason || 'No reason provided' }
-        )
-        .setTimestamp();
+        .setDescription(`**${action}**\n${target} was ${action.toLowerCase()} by ${moderator}\nReason: ${reason || 'No reason provided'}`);
 
     channel.send({ embeds: [embed] }).catch(() => {});
 }
