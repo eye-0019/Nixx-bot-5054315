@@ -31,12 +31,7 @@ module.exports = {
         }
 
         await target.roles.add(role, reason);
-        await logAction(interaction.guild, {
-            action: 'Role Added',
-            moderator: interaction.user,
-            target: target.user,
-            reason: `${reason} (role: ${role.name})`,
-            color: 0xFFFFFF
+
         });
 
         return interaction.reply(`Added ${role} to ${target.user.tag}. Reason: ${reason}`);
