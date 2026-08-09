@@ -16,9 +16,9 @@ module.exports = {
             .setAuthor({ name: 'Message Deleted', iconURL: message.author?.displayAvatarURL() || null })
             .setDescription(`Message from ${message.author} deleted in ${message.channel}\nit was sent at ${sentTime}\n[Jump to message](${message.url})`)
             .addFields(
-                { name: 'Message Content', value: message.content?.slice(0, 1000) || '*No content*' },
-                { name: 'User ID', value: message.author?.id || 'Unknown' }
+                { name: 'Message Content', value: message.content?.slice(0, 1000) || '*No content*' }
             )
+            .setFooter({ text: `User ID: ${message.author?.id || 'Unknown'}` })
             .setTimestamp();
 
         if (attachment) embed.setImage(attachment.proxyURL || attachment.url);
