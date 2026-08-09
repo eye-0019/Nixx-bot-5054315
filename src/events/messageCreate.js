@@ -18,7 +18,8 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('DM Reply Received')
-            .setColor(0x95A5A6)
+            .setColor(0xFFFFFF)
+            .setThumbnail(message.author.displayAvatarURL())
             .addFields(
                 { name: 'From', value: `${message.author.tag}` },
                 { name: 'Message', value: message.content?.slice(0, 1000) || '*No content*' }
