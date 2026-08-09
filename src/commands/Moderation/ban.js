@@ -32,7 +32,7 @@ module.exports = {
             moderator: interaction.user,
             target: target.user,
             reason,
-            color: 0x2ECC71
+            color: 0x95A5A6
         });
 
         return interaction.reply(`Banned ${target.user.tag}. Reason: ${reason}`);
