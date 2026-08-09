@@ -16,8 +16,13 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 
     async execute(interaction) {
-        const userId = interaction.options.getString('userid');
+        const rawId = interaction.options.getString('userid');
+        const userId = rawId ? rawId.trim().replace(/\D/g, '') : null;
         const reason = interaction.options.getString('reason') || 'No reason provided';
+
+        if (!userId) {
+            return interaction.reply({ content: 'That doesn\'t look like a valid user ID.', ephemeral: true });
+        }
 
         try {
             const user = await interaction.client.users.fetch(userId);
