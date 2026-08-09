@@ -8,11 +8,8 @@ module.exports = {
         if (!channel) return;
 
         const embed = new EmbedBuilder()
-            .setTitle('Member Joined')
             .setColor(0xFFFFFF)
-            .setThumbnail(member.user.displayAvatarURL())
-            .setDescription(`${member.user.tag}`)
-            .setTimestamp();
+            .setDescription(`${member.user} joined the server`);
 
         channel.send({ embeds: [embed] }).catch(() => {});
     }
