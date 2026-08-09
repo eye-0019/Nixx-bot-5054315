@@ -29,7 +29,7 @@ module.exports = {
             moderator: interaction.user,
             target: target.user,
             reason,
-            color: 0x2ECC71
+            color: 0x95A5A6
         });
 
         return interaction.reply(`Removed timeout from ${target.user.tag}. Reason: ${reason}`);
