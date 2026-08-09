@@ -9,7 +9,8 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Member Left')
-            .setColor(0x95A5A6)
+            .setColor(0xFFFFFF)
+            .setThumbnail(member.user.displayAvatarURL())
             .setDescription(`${member.user.tag}`)
             .setTimestamp();
 
