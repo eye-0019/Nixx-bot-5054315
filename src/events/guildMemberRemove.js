@@ -9,7 +9,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Member Left')
-            .setColor(0xE74C3C)
+            .setColor(0x95A5A6)
             .setDescription(`${member.user.tag}`)
             .setTimestamp();
 
