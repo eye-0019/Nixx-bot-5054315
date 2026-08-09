@@ -8,11 +8,8 @@ module.exports = {
         if (!channel) return;
 
         const embed = new EmbedBuilder()
-            .setTitle('Member Left')
             .setColor(0xFFFFFF)
-            .setThumbnail(member.user.displayAvatarURL())
-            .setDescription(`${member.user.tag}`)
-            .setTimestamp();
+            .setDescription(`${member.user} left the server`);
 
         channel.send({ embeds: [embed] }).catch(() => {});
     }
