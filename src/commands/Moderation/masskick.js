@@ -39,7 +39,7 @@ module.exports = {
             moderator: interaction.user,
             target: interaction.user,
             reason: `${success} kicked, ${failed} failed. Reason: ${reason}`,
-            color: 0xE67E22
+            color: 0x95A5A6
         });
 
         return interaction.editReply(`Mass kick complete. Success: ${success}, Failed: ${failed}.`);
