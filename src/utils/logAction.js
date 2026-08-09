@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 
-async function logAction(guild, { action, moderator, target, reason, color = 0x5865F2 }) {
+async function logAction(guild, { action, moderator, target, reason, color = 0x2ECC71 }) {
     const logChannelId = process.env.LOG_CHANNEL_ID;
     if (!logChannelId) return;
 
