@@ -12,7 +12,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Message Edited')
-            .setColor(0xF1C40F)
+            .setColor(0x95A5A6)
             .addFields(
                 { name: 'Author', value: `${newMessage.author?.tag || 'Unknown'}` },
                 { name: 'Channel', value: `${newMessage.channel}` },
