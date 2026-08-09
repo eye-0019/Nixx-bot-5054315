@@ -13,9 +13,7 @@ module.exports = {
         const sentTime = `<t:${Math.floor(message.createdTimestamp / 1000)}:F>`;
 
         const embed = new EmbedBuilder()
-            .setColor(0xFFFFFF)
-            .setAuthor({ name: 'Message Deleted' })
-            .setThumbnail(message.author?.displayAvatarURL() || null)
+            .setAuthor({ name: 'Message Deleted', iconURL: message.author?.displayAvatarURL() || null })
             .setDescription(`Message from ${message.author} deleted in ${message.channel}\nit was sent at ${sentTime}\n[Jump to message](${message.url})`)
             .addFields(
                 { name: 'Message Content', value: message.content?.slice(0, 1000) || '*No content*' },
