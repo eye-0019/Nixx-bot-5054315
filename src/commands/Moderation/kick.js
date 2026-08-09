@@ -32,7 +32,7 @@ module.exports = {
             moderator: interaction.user,
             target: target.user,
             reason,
-            color: 0xE67E22
+            color: 0x95A5A6
         });
 
         return interaction.reply(`Kicked ${target.user.tag}. Reason: ${reason}`);
