@@ -29,3 +29,8 @@ module.exports = {
                 value: usedInvite ? `${usedInvite.code} (by ${usedInvite.inviter?.tag || 'Unknown'})` : 'Unknown'
             })
             .setFooter({ text: `User ID: ${member.id}` })
+            .setTimestamp();
+
+        channel.send({ embeds: [embed] }).catch(() => {});
+    }
+};
