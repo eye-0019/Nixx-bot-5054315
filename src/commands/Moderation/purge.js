@@ -34,7 +34,7 @@ module.exports = {
             moderator: interaction.user,
             target: interaction.user,
             reason: `${deletedTotal} messages deleted in ${interaction.channel}`,
-            color: 0x9B59B6
+            color: 0x95A5A6
         });
 
         return interaction.editReply(`Deleted ${deletedTotal} message(s).`);
