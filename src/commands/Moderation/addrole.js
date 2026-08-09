@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { logAction } = require('../../utils/logAction');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -31,9 +30,6 @@ module.exports = {
         }
 
         await target.roles.add(role, reason);
-
-        });
-
         return interaction.reply(`Added ${role} to ${target.user.tag}. Reason: ${reason}`);
     }
 };
