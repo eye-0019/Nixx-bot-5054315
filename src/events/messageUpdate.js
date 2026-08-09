@@ -15,6 +15,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor(0xFFFFFF)
             .setAuthor({ name: 'Message Edited' })
+            .setThumbnail(newMessage.author?.displayAvatarURL() || null)
             .setDescription(`Message from ${newMessage.author} edited in ${newMessage.channel}\nit was sent at ${sentTime}\n[Jump to message](${newMessage.url})`)
             .addFields(
                 { name: 'Before', value: oldMessage.content?.slice(0, 500) || '*No content*' },
