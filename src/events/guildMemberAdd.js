@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
+const { cacheGuildInvites, getCachedInvites } = require('../utils/inviteCache');
 
 module.exports = {
     name: 'guildMemberAdd',
@@ -7,10 +8,24 @@ module.exports = {
         const channel = member.guild.channels.cache.get(logChannelId);
         if (!channel) return;
 
-        const embed = new EmbedBuilder()
-            .setColor(0xFFFFFF)
-            .setDescription(`${member.user} joined the server`);
+        const oldInvites = getCachedInvites(member.guild.id);
+        let usedInvite = null;
 
-        channel.send({ embeds: [embed] }).catch(() => {});
-    }
-};
+        try {
+            const newInvites = await member.guild.invites.fetch();
+            usedInvite = newInvites.find(invite => {
+                const oldUses = oldInvites.get(invite.code) || 0;
+                return invite.uses > oldUses;
+            });
+        } catch {}
+
+        await cacheGuildInvites(member.guild);
+
+        const embed = new EmbedBuilder()
+            .setAuthor({ name: 'Member Joined', iconURL: member.user.displayAvatarURL() })
+            .setDescription(`${member.user} joined the server`)
+            .addFields({
+                name: 'Invite Used',
+                value: usedInvite ? `${usedInvite.code} (by ${usedInvite.inviter?.tag || 'Unknown'})` : 'Unknown'
+            })
+            .setFooter({ text: `User ID: ${member.id}` })
