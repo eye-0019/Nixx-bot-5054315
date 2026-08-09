@@ -17,14 +17,11 @@ module.exports = {
         if (!logChannel) return;
 
         const embed = new EmbedBuilder()
-            .setTitle('DM Reply Received')
             .setColor(0xFFFFFF)
-            .setThumbnail(message.author.displayAvatarURL())
+            .setDescription(`DM reply from ${message.author}`)
             .addFields(
-                { name: 'From', value: `${message.author.tag}` },
                 { name: 'Message', value: message.content?.slice(0, 1000) || '*No content*' }
-            )
-            .setTimestamp();
+            );
 
         logChannel.send({ embeds: [embed] }).catch(() => {});
     }
