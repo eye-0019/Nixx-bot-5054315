@@ -21,7 +21,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle(`Warnings for ${target.tag}`)
-            .setColor(0xF1C40F)
+            .setColor(0x95A5A6)
             .setDescription(
                 warnings.map((w, i) => `**${i + 1}.** ${w.reason} — by ${w.moderator} (${new Date(w.date).toLocaleDateString()})`).join('\n')
             );
