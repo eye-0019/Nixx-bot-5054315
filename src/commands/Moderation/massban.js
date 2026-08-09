@@ -38,7 +38,7 @@ module.exports = {
             moderator: interaction.user,
             target: interaction.user,
             reason: `${success} banned, ${failed} failed. Reason: ${reason}`,
-            color: 0xE74C3C
+            color: 0x95A5A6
         });
 
         return interaction.editReply(`Mass ban complete. Success: ${success}, Failed: ${failed}.`);
