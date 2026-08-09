@@ -37,7 +37,7 @@ module.exports = {
             moderator: interaction.user,
             target: target.user,
             reason: `${reason} (${minutes} min)`,
-            color: 0xF1C40F
+            color: 0x95A5A6
         });
 
         return interaction.reply(`Timed out ${target.user.tag} for ${minutes} minute(s). Reason: ${reason}`);
