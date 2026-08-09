@@ -9,6 +9,8 @@ module.exports = {
         const channel = message.guild.channels.cache.get(logChannelId);
         if (!channel) return;
 
+        const attachment = message.attachments?.first();
+
         const embed = new EmbedBuilder()
             .setTitle('Message Deleted')
             .setColor(0x95A5A6)
@@ -18,6 +20,8 @@ module.exports = {
                 { name: 'Content', value: message.content?.slice(0, 1000) || '*No content*' }
             )
             .setTimestamp();
+
+        if (attachment) embed.setImage(attachment.proxyURL || attachment.url);
 
         channel.send({ embeds: [embed] }).catch(() => {});
     }
