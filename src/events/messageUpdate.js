@@ -17,9 +17,9 @@ module.exports = {
             .setDescription(`Message from ${newMessage.author} edited in ${newMessage.channel}\nit was sent at ${sentTime}\n[Jump to message](${newMessage.url})`)
             .addFields(
                 { name: 'Before', value: oldMessage.content?.slice(0, 500) || '*No content*' },
-                { name: 'After', value: newMessage.content?.slice(0, 500) || '*No content*' },
-                { name: 'User ID', value: newMessage.author?.id || 'Unknown' }
+                { name: 'After', value: newMessage.content?.slice(0, 500) || '*No content*' }
             )
+            .setFooter({ text: `User ID: ${newMessage.author?.id || 'Unknown'}` })
             .setTimestamp();
 
         channel.send({ embeds: [embed] }).catch(() => {});
